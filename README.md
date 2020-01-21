@@ -6,7 +6,7 @@
 
 - Go to project folder
 
-In command prompt/ terminal please type:
+- In command prompt/ terminal please type:
 
 ### To install dependencies
 
@@ -20,7 +20,7 @@ In command prompt/ terminal please type:
 
 - Webpack will check for used dependencies, will convert the ES2015 code to normal Javascript, and concat and uglify everything in the dist/app.bundle.js folder
 
-## To run tests
+### To run tests
 
 'npm test'
 
