@@ -1,0 +1,16 @@
+<div>
+    <h2>Initialize a new list of company stocks</h2>
+    <form ng-submit="loadController.goToHome()" name="startForm">
+        <div class="form-group">
+            <label for="balance">Your initial balance</label>
+            <input type="text" class="form-control" id="balance" ng-model="loadController.balance" required>
+        </div>
+        <div class="form-group">
+            <label for="stocks">Number of companies</label>
+            <input type="text" class="form-control" id="stocks" ng-model="loadController.stocks" required>
+        </div>
+        <div class="form-group">
+            <input class="btn" type="submit" id="submit" value="Initialize World">
+        </div>
+    </form>
+</div>

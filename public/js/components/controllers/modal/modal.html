@@ -1,0 +1,35 @@
+<form class="form-horizontal" name="stockForm">
+    <div class="modal-header">
+        <button ng-click="modalInstanceCtrl.cancel()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title">Trade stock of company: {{modalInstanceCtrl.stock.name}} @ {{modalInstanceCtrl.stock.currentPrice | currency : '€' : 3}}</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+            <fieldset>
+            <div class="row form-group" ng-class="{'has-error has-feedback': modalInstanceCtrl.order.amount < 1}">
+                <label for="amount" class="col-sm-2 control-label">Amount</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="amount" ng-model="modalInstanceCtrl.order.amount">
+                    <span ng-class="{'glyphicon glyphicon-remove form-control-feedback' : modalInstanceCtrl.order.amount < 1}"></span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="col-sm-offset-1 radio-inline control-label">
+                    <input type="radio" name="action" ng-model="modalInstanceCtrl.order.action" value="BUY" required><b>Buy</b>
+                </label>
+                <label class="radio-inline control-label">
+                    <input type="radio" name="action" ng-model="modalInstanceCtrl.order.action" value="SELL" required><b>Sell</b>
+                </label>
+            </div>
+        </fieldset>
+    </div>
+
+    <div ng-init="modalInstanceCtrl.initializeChart()">
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" ng-click="modalInstanceCtrl.changePosition(modalInstanceCtrl.order.action, modalInstanceCtrl.order.amount)">Proceed</button>
+        <button class="btn btn-secondary" ng-click="modalInstanceCtrl.cancel()">Cancel</button>
+    </div>
+</form>

@@ -1,0 +1,18 @@
+<table class="well table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th role="button" ng-click="order = 'name'; reverse = !reverse">Symbol <div class="glyphicon glyphicon-sort pull-right"></div></th>
+      <th role="button" ng-click="order = 'currentPrice'; reverse = !reverse">Price <div class="glyphicon glyphicon-sort pull-right"></div></th>
+      <th role="button" ng-click="order = 'currentPrice - startPrice'; reverse = !reverse">Change <div class="glyphicon glyphicon-sort pull-right"></th>
+      <th role="button" ng-click="order = 'currentPrice - startPrice'; reverse = !reverse">%Change <div class="glyphicon glyphicon-sort pull-right"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-controller="modalController as modal" role="button" ng-repeat="stock in list | filter:search | orderBy:order:reverse " ng-click="modal.open(stock)">
+        <td>{{stock.name}}</td>
+        <td ng-class="stock.currentPrice - stock.startPrice >= 0 ? 'text-success' : 'text-danger'">{{stock.currentPrice | currency : '€' : 3}}</td>
+        <td>{{stock.currentPrice - stock.startPrice | number : 3}}</td>
+        <td>{{((stock.currentPrice - stock.startPrice)/stock.startPrice)*100 | number : 3}}%</td>
+      </tr>
+  </tbody>
+</table>

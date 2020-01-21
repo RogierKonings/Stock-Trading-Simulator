@@ -1,0 +1,22 @@
+<table class="well table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+        <th>Symbol</th>
+        <th>Last Price</th>
+        <th>Start Price</th>
+        <th>Change</th>
+        <th>%Change</th>
+        <th>Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-controller="modalController as modal" role="button" ng-repeat="order in list track by $index" ng-click="modal.open(order.stock)">
+        <td>{{order.stock.name}}</td>
+        <td ng-class="order.stock.currentPrice - order.stock.startPrice >= 0 ? 'text-success' : 'text-danger'">{{order.stock.currentPrice | currency : '€' : 3}}</td>
+        <td>{{order.stock.startPrice | currency : '€' : 3}}</td>
+        <td>{{order.stock.currentPrice - order.stock.startPrice | number : 3}}</td>
+        <td>{{((order.stock.currentPrice - order.stock.startPrice)/order.stock.startPrice)*100 | number : 3}}%</td>
+        <td>{{order.amount}}</td>
+    </tr>
+    </tbody>
+</table>
