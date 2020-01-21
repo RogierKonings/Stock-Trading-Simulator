@@ -2,23 +2,23 @@
 
 ## Instructions
 
-## Download & install NodeJS @ <https://nodejs.org/en/>
+- Download & install NodeJS @ <https://nodejs.org/en/>
 
-## Go to project folder
+- Go to project folder
 
-## In command prompt please type
+In command prompt/ terminal please type:
 
-## To install dependencies
+### To install dependencies
 
 'npm install'
 
-## To start the application
+### To start the application
 
 'npm start'
 
-## Go to <http://localhost:1337>
+- Go to <http://localhost:1337>
 
-## Webpack will check for used dependencies, will convert the ES2015 code to normal Javascript, and concat and uglify everything in the dist/app.bundle.js folder
+- Webpack will check for used dependencies, will convert the ES2015 code to normal Javascript, and concat and uglify everything in the dist/app.bundle.js folder
 
 ## To run tests
 
